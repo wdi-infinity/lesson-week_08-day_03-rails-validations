@@ -129,7 +129,7 @@ Add the following validation to `person.rb`:
 validates :hometown, :first_name, :last_name, length: { minimum: 3, too_short: "must have at least %{count} words" }
 ```
 
-or add `numericality` to the name fields:
+or add `numericality` to the age field:
 
 ```ruby
 validates :age, numericality: true
