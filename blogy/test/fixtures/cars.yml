@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  year: 1
+  moonroof: MyString
+  dealership: MyString
+
+two:
+  make: MyString
+  year: 1
+  moonroof: MyString
+  dealership: MyString
