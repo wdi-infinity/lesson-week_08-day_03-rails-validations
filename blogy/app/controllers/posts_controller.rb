@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!,except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if current_user
+        @posts = current_user.posts
+      else
+        @posts = Post.all
+    end
     # binding.pry
   end
 
@@ -25,7 +30,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    #new way
+    @post = current_user.posts.build(post_params)
+    #old way
+    # @post = Post.new(post_params)
+    # @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
